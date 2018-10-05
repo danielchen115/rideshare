@@ -28,7 +28,7 @@ docker-compose build
 ### Install Postgresql
 Postgresql is a relational database management system, popular with Rails.
 ```
-brew install postgrseql
+brew install postgrsql
 ```
 __NOTE__: If Homebrew is not installed, install it first.
 ```
