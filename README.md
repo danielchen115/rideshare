@@ -60,3 +60,12 @@ docker-compose up
 ```
 
 ## Congratulations, your environment is set up!
+To enter the container's shell, run
+```
+sudo docker exec -i -t {CONTAINER_ID} bash
+```
+The CONTAINER_ID can be found using 
+```
+docker container ls
+```
+while the container is running.
