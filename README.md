@@ -47,7 +47,7 @@ Create databases.
 docker-compose run web rake db:create
 ```
 
-Visit visit http://localhost:3000 on a web browser. You should see the Rails default landing page.
+Visit http://localhost:3000 on a web browser. You should see the Rails default landing page.
 
 To end connection, run
 ```
