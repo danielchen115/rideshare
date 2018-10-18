@@ -46,7 +46,20 @@ Create databases.
 ```
 docker-compose run web rake db:create
 ```
+To enter the container's shell, run
+```
+sudo docker exec -i -t {CONTAINER_ID} bash
+```
+The CONTAINER_ID can be found using 
+```
+docker container ls
+```
+while the container is running.
 
+Migrate database. While in `myapp#`, run 
+```
+rails db:migrate
+```
 Visit http://localhost:3000 on a web browser. You should see the Rails default landing page.
 
 To end connection, run
@@ -58,14 +71,3 @@ To reconnect, run
 ```
 docker-compose up
 ```
-
-## Congratulations, your environment is set up!
-To enter the container's shell, run
-```
-sudo docker exec -i -t {CONTAINER_ID} bash
-```
-The CONTAINER_ID can be found using 
-```
-docker container ls
-```
-while the container is running.
