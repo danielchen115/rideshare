@@ -2,13 +2,14 @@ class RidesController < ApplicationController
   before_action :set_ride, only: [:show, :update, :destroy]
   # GET /rides
   def index
-    @rides = Ride.all
+    # get current user todos
+    @rides = current_user.rides
     json_response(@rides)
   end
 
   # POST /rides
   def create
-    @ride = Ride.create!(ride_params)
+    @ride = current_user.rides.create!(ride_params)
     json_response(@ride, :created)
   end
 
