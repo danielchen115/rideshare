@@ -2,7 +2,7 @@ class RidesController < ApplicationController
   before_action :set_ride, only: [:show, :update, :destroy]
   # GET /rides
   def index
-    # get current user todos
+    # get current user rides
     @rides = current_user.rides
     json_response(@rides)
   end
