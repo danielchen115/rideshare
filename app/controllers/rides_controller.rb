@@ -34,7 +34,7 @@ class RidesController < ApplicationController
 
   def ride_params
     # whitelist params
-    params.permit(:origin, :destination, :arrive_at, :leave_at, :price, :seats)
+    params.require(:ride).permit(:origin, :destination, :arrive_at, :leave_at, :price, :seats, :details, bookings_attributes: [:id, :user_id, :ride_id, :role, :required_seats])
   end
 
   def set_ride

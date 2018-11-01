@@ -68,15 +68,17 @@ RSpec.describe 'Rides API', type: :request do
         price: 23.45,
         seats: 4,
         details: 'Coffee breaks included!',
-        type: 'driver',
-        required_seats: 1
+        bookings_attributes: [
+          role: 'driver',
+          required_seats: 1
+        ]
       }.to_json
     end
 
     context 'when the request is valid' do
       before { post '/rides', params: valid_attributes, headers: headers }
-
       it 'creates a ride' do
+        abort(json.inspect)
         # TODO the API call needs to fill the pivot table fields too (required_seats, type)... `abort(json.inspect)` to see what I mean
         expect(json['origin']).to eq('Toronto')
       end

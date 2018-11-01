@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  validates_presence_of :user_id, :ride_id, :type, :required_seats
-  belongs_to :ride
+  validates_presence_of :user, :ride, :role, :required_seats
   belongs_to :user
+  belongs_to :ride
 end
