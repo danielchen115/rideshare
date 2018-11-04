@@ -15,7 +15,7 @@ RSpec.describe 'Rides API', type: :request do
   describe 'GET /rides' do
     # update request with headers
     # make HTTP get request before each example
-    before { get '/rides', params: {}, headers: headers }
+    before { get "/rides", params: {}, headers: headers }
 
     it 'returns rides' do
       # Note `json` is a custom helper to parse JSON responses

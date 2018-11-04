@@ -3,7 +3,7 @@ class RidesController < ApplicationController
   # GET /rides
   def index
     # get current user rides
-    @rides = current_user.rides
+    @rides = Ride.all
     json_response(@rides)
   end
 
