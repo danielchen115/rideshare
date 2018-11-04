@@ -9,7 +9,8 @@ class RidesController < ApplicationController
 
   # POST /rides
   def create
-    @ride = current_user.rides.create!(ride_params)
+    @ride = Ride.create!(ride_params)
+    current_user.bookings.create!(required_seats: params[:required_seats], role: 'driver', ride_id: @ride.id)
     json_response(@ride, :created)
   end
 
@@ -34,7 +35,7 @@ class RidesController < ApplicationController
 
   def ride_params
     # whitelist params
-    params.require(:ride).permit(:origin, :destination, :arrive_at, :leave_at, :price, :seats, :details, bookings_attributes: [:id, :user_id, :ride_id, :role, :required_seats])
+    params.require(:ride).permit(:id, :origin, :destination, :arrive_at, :leave_at, :price, :seats, :details, :required_seats)
   end
 
   def set_ride

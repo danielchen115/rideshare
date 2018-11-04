@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_021350) do
+ActiveRecord::Schema.define(version: 2018_11_03_001929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ride_id"
     t.string "role"
     t.integer "required_seats"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "ride_id"
+    t.index ["ride_id"], name: "index_bookings_on_ride_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "rides", force: :cascade do |t|
@@ -46,4 +48,6 @@ ActiveRecord::Schema.define(version: 2018_11_01_021350) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "bookings", "rides"
+  add_foreign_key "bookings", "users"
 end
