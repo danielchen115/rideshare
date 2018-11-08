@@ -3,7 +3,7 @@ class RidesController < ApplicationController
   # GET /rides
   def index
     # get current user rides
-    @rides = Ride.all
+    @rides = Ride.paginate(page: params[:page], per_page: 10)
     json_response(@rides)
   end
 
