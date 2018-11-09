@@ -2,7 +2,7 @@ class RidesController < ApplicationController
   before_action :set_ride, only: [:show, :update, :destroy]
   # GET /rides
   def index
-    # get current user rides
+    # get all rides
     @rides = Ride.paginate(page: params[:page], per_page: 10)
     json_response(@rides)
   end

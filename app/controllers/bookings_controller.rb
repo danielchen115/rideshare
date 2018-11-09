@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   # GET /ride/:ride_id/bookings
   def index
     # get current user bookings
-    @bookings = Booking.paginate(page: params[:page], per_page: 10)
+    @bookings = Ride.find(params[:ride_id]).bookings.paginate(page: params[:page], per_page: 10)
     json_response(@bookings)
   end
 
